@@ -15,6 +15,7 @@ public class ProjectsApp {
 	private ProjectService projectService = new ProjectService();
 	private Project curProject;
 	
+	// Define available operations for the user
 		// @formatter:off
 		private List<String> operations = List.of(
 			"1) Add a project",
@@ -77,6 +78,7 @@ public class ProjectsApp {
 			}
 		}
 		
+		// Prompt user for project ID to delete
 		private void deleteProject() {
 			listProjects();
 			
@@ -90,7 +92,7 @@ public class ProjectsApp {
 			}
 			
 		}
-
+		// Method to update project details
 		private void updateProjectDetails() {
 			if(Objects.isNull(curProject)) {
 				System.out.println("\nPlease select a project.");
@@ -102,9 +104,9 @@ public class ProjectsApp {
 			
 			BigDecimal actualHours = getDecimalInput("Enter the actual hours [" + curProject.getActualHours() + "]");
 			
-			Integer difficulty = getIntInput("Enter the estimated hours [" + curProject.getDifficulty() + "]");
+			Integer difficulty = getIntInput("Enter the project difficulty [" + curProject.getDifficulty() + "]");
 			
-			String notes = getStringInput("Enter the estimated hours [" + curProject.getNotes() + "]");
+			String notes = getStringInput("Enter the project notes [" + curProject.getNotes() + "]");
 			
 			Project project = new Project();
 			
